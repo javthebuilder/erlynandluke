@@ -553,8 +553,10 @@
                   </div>
                   <div class="col-md-5 col-sm-5 ">
                      <div class="block-registry">
+                        <h2 class="heavy normal mb-30" style="color: green; display: none;" id="success_notified">Thank you!!! <br>You're response has been submitted.</h2>
                         <h2 class="heavy normal mb-30">You can make your reservation for the wedding here</h2>
                         <form class="registry-form" id="registry-form">
+                           
                            <input placeholder="Your name" value="" id="name" name="name" type="text">
                            
                            <!--Input columns-->
@@ -644,6 +646,7 @@
             e.preventDefault();
          });
          function submitMyResponse(){
+            $("#success_notified").css("display", "none");
             var name = document.getElementById('name').value;
             var guest_number = document.getElementById('guest_number').value;
             var response_select = document.getElementById('response_select').value;
@@ -659,7 +662,9 @@
                 },
                 success: function(data) {
 
-                     alert('Thank you ' + name + '. Response has been sent.');
+                     //alert('Thank you ' + name + '. Response has been sent.');
+                     $("#success_notified").css("display", "block");
+                     
                      console.log(data);
                      /*
                     if (data.allowed == true) {
