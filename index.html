@@ -58,7 +58,7 @@
                         </a>
                      </div>
                      <ul>
-                        <li><a class="scroll" href="#story">Love story</a></li>
+                        <li style="display: none;"><a class="scroll" href="#story">Love story</a></li>
                         <li><a class="scroll" href="#wedding">The wedding</a></li>
                         <li><a class="scroll" href="#album">Photo album</a></li>
                         <li><a class="scroll" href="#gift">Gift registry</a></li>
@@ -88,10 +88,12 @@
                            </div>
                            <ul>
                               <li>Save the date</li>
-                              <li>Dec 18th, 2022</li>
+
+                              
+                              <li>18th of Dec. 2022</li>
                            </ul>
                         </div>
-                        <p class="mt-20 lead">28 Chalmers Street, Sydney Australia</p>
+                        <p style="display: none;" class="mt-20 lead">28 Chalmers Street, Sydney Australia</p>
                      </div>
                   </div>
                   <!--End row-->
@@ -102,7 +104,7 @@
          </section>
          <!--End hero section-->
          <!--Story section-->
-         <section id="story" class="story pt-120 pb-120">
+         <section id="story" class="story pt-120 pb-120" style="display: none;">
             <svg class="section-dashed" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="578px" xml:space="preserve">
                <path class="dashed-line" stroke-width="1"  d="M30 0 v600 400"/>
             </svg>
@@ -221,7 +223,7 @@
                      <div class="block-content front-p">
                         
                         <h2 class="typo">Save the date</h2>
-                        <p class="lead mt-20 text-white">Sunday Dec 18th, 2022 - 28 Chalmers Street, Sydney</p>
+                        <p class="lead mt-20 text-white">Sunday Dec 18th, 2022 - The Chapel of St. Michael The Archangel, Leederville WA 6007</p>
                         <span class="countdown text-white"></span>
                      </div>
                   </div>
@@ -256,7 +258,7 @@
                            </div>
                         </div>
                         <p class="mt-30 mb-30">Main ceremony<span>16:00h - 17:00</span></p>
-                        <p >Address<span>28 Chalmers Street<br>Sydney</span></p>
+                        <p >Address<span>The Chapel of St. Michael The Archangel<br>Leederville WA 6007</span></p>
                      </div>
                   </div>
                   <div class="col-sm-5 text-center">
@@ -270,7 +272,7 @@
                            </div>
                         </div>
                         <p class="mt-30 mb-30">Wedding Party<span>17:00h - 18:00</span></p>
-                        <p>Address<span>28 Chalmers Street <br>Sydney</span></p>
+                        <p>Address<span>SILKS Crown Perth<br>Burswood WA 6100</span></p>
                      </div>
                   </div>
                </div>
@@ -293,7 +295,7 @@
          </section>
          <!--End wedding section-->
          <!--Album section-->
-         <section id="album" class="album bg-grey pt-120 pb-120">
+         <section id="album" class="album bg-grey pt-120 pb-120" style="display: none;">
             <!--Container-->
             <div class="container">
                <!--Row-->
@@ -365,7 +367,7 @@
          </section>
          <!--End album section-->
          <!--Album section-->
-         <section id="gift" class="gift  pt-120 pb-120 mb-100">
+         <section id="gift" class="gift  pt-120 pb-120 mb-100" style="display: none;">
             <!--Container-->
             <div class="container">
                <!--Row-->
@@ -471,7 +473,7 @@
                         <blockquote class="mt-20">Friendship... is not something you learn in school. But if you haven't learned the meaning 
                            of friendship, you really haven't learned anything.
                         </blockquote>
-                        <h2 class="heavy uppercase mt-20">We love you Lisa and Jimmy</h2>
+                        <h2 class="heavy uppercase mt-20">We love you Erlyn and Luke</h2>
                      </div>
                   </div>
                </div>
@@ -481,7 +483,7 @@
          </section>
          <!--End friends section-->
          <!--Accomadation section-->
-         <section class="accom pt-120 pb-120 ">
+         <section class="accom pt-120 pb-120 hidden">
             <!--Container-->
             <div class="container">
                <!-- Row-->
@@ -552,31 +554,33 @@
                   <div class="col-md-5 col-sm-5 ">
                      <div class="block-registry">
                         <h2 class="heavy normal mb-30">You can make your reservation for the wedding here</h2>
-                        <form class="registry-form " method="post" action="#">
+                        <form class="registry-form" id="registry-form">
                            <input placeholder="Your name" value="" id="name" name="name" type="text">
+                           
                            <!--Input columns-->
                            <div class="input-columns clearfix">
                               <div class="column-1">
                                  <div class="column-inner">
-                                    <input placeholder="Guest number" value="" id="Guest" name="guest" type="text">
+                                    <input placeholder="Guest number" value="" id="guest_number" name="guest_number" type="text">
                                  </div>
                               </div>
                               <!--Column-->
                               <div class="column-2">
                                  <div class="column-inner select-input">
-                                    <select>
-                                       <option value="volvo">I'm attending...</option>
-                                       <option value="saab">All events</option>
-                                       <option value="mercedes">Wedding</option>
-                                       <option value="audi">Ceremony</option>
-                                       <option value="audi">I'm not attending</option>
+                                    <select id="response_select">
+                                       <option value="im_attending">I'm attending...</option>
+                                       <option value="all_events">All events</option>
+                                       <option value="wedding_only">Wedding Ceremony</option>
+                                       <option value="reception_only">Reception</option>
+                                       <option value="not_attending">I'm not attending</option>
                                     </select>
                                  </div>
                               </div>
                               <!--End column-->
                            </div>
                            <!--End input columns-->
-                           <input value="Iam Attending the wedding" class=" but submit" type="submit">
+                           <!-- <input value="Iam Attending the wedding" class="btn" type="submit"> -->
+                           <button  class="btn btn-info pt-10 btn-md submit" onclick="submitMyResponse();">Submit</button>
                         </form>
                      </div>
                   </div>
@@ -621,14 +625,65 @@
             <!--End container-->
          </footer>
          <!--End footer section -->
+
       </div>
       <!-- End wrapper-->
+      
+         <!-- Button trigger modal -->
+
+ 
+
       <!--Javascript-->	
       <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
       <script src="js/jquery.countdown.min.js" type="text/javascript"></script>
       <script src="js/venobox.min.js" type="text/javascript"></script>
       <script src="js/smooth-scroll.js" type="text/javascript"></script>
       <script src="js/script.js" type="text/javascript"></script>
+      <script>
+         $("registry-form").submit(function(e){
+            e.preventDefault();
+         });
+         function submitMyResponse(){
+            var name = document.getElementById('name').value;
+            var guest_number = document.getElementById('guest_number').value;
+            var response_select = document.getElementById('response_select').value;
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:8000/api/send_invitation',
+                data: {
+                  'name': name,
+                  'response_select': response_select,
+                  'guest_number': guest_number,
+
+                },
+                success: function(data) {
+
+                     alert('Thank you ' + name + '. Response has been sent.');
+                     console.log(data);
+                     /*
+                    if (data.allowed == true) {
+                        yes_order_cancel_status.style.display = "none";
+                        order_cancelled.style.display = "block";
+                        setTimeout(() => location.reload(), 3000);
+
+                    } else {
+
+                        cancel_order_yes_button.disabled = false;
+
+                    }
+                    */
+                }
+
+            });
+
+
+            
+            
+            
+            console.log("submitMyResponse", name, guest_number, response_select);
+         }
+      </script>
       <!-- Google analytics -->
       <!-- End google analytics -->
    </body>

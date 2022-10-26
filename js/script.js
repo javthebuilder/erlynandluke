@@ -101,4 +101,9 @@
         numeratio: true
     });
 
+    document.getElementById("registry-form").addEventListener("click", function(event){
+        event.preventDefault()
+      });
+
+
 })(jQuery);
